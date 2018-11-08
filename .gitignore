@@ -1,6 +1,3 @@
-# Usually we don't put 'uploaded files' into git either.
-files/
-
 # Modify this, only if you've changed the default folder in .bolt.yml
 public/bolt-public/
 
