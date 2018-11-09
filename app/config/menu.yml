@@ -2,23 +2,21 @@
 # details: https://docs.bolt.cm/configuration/menus
 
 main:
-    - label: Home
-      title: This is the first menu item.
+    - label: Accueil
+      title: Accueil Hover
       path: homepage
       class: first
-    - label: Toto
+    - label: Tout les tutos
       path: entry/1
       submenu:
-          - label: Sub tt
-            path: entry/2
-          - label: Sub 2
-            class: menu-item-class
-            path: entry/3
-          - label: Sub 3
-            path: entry/4
-          - label: Sub 4
-            class: sub-class
-            path: page/3
+          - label: Config
+            path: categories/config
+          - label: Back-end
+            path: categories/back-end
+          - label: Front-end
+            path: categories/front-end
+          - label: SEO
+            path: categories/seo
     - label: All pages
       path: pages/
     - label: The Bolt site

@@ -20,6 +20,7 @@ node_modules
 bower_components
 npm-debug.log
 .sass-cache
+composer.lock
 
 # File-system cruft and temporary files
 *.gz

@@ -99,9 +99,9 @@ pages:
 # The 'sort' is set to '-datepublish', which means that newer entries will be
 # shown above older entries.
 
-entries:
-    name: Blog
-    singular_name: Entry
+tutos:
+    name: Tutos
+    singular_name: article
     fields:
         title:
             type: text
@@ -120,16 +120,14 @@ entries:
             type: image
             group: media
             placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
-        video:
-            type: video
-    relations:
-        pages:
-          multiple: false
-          order: title
-          label: Select a page
-    taxonomy: [ categories, tags ]
-    record_template: entry.twig
-    listing_template: listing.twig
+    # relations:
+    #     pages:
+    #       multiple: false
+    #       order: title
+    #       label: Select a page
+    taxonomy: [ categories ]
+    record_template: tuto.twig
+    listing_template: listing_tuto.twig
     listing_records: 10
     default_status: published
     sort: -datepublish
@@ -213,7 +211,7 @@ showcases:
             postfix: "Select your favourite turtle(s)."
         selectentry:
             type: select
-            values: entries/id,title
+            values: tutos/id,title
             postfix: "Select an entry"
             autocomplete: true
             sort: title
@@ -232,17 +230,17 @@ showcases:
                     extensions: [ gif, jpg, png ]
                 repeatcontent:
                     type: html
-    relations:
-        entries:
-            multiple: false
-            label: "Choose an entry"
-            order: -id
-            format: "{{ item.title|escape }} (№ {{ item.id }})"
-            postfix: "By selecting an Entry, you're creating a bi-directional relationship to that Entry."
-        pages:
-            multiple: true
-            order: title
-            label: Select zero or more pages
+    # relations:
+    #     entries:
+    #         multiple: false
+    #         label: "Choose an entry"
+    #         order: -id
+    #         format: "{{ item.title|escape }} (№ {{ item.id }})"
+    #         postfix: "By selecting an Entry, you're creating a bi-directional relationship to that Entry."
+    #     pages:
+    #         multiple: true
+    #         order: title
+    #         label: Select zero or more pages
     taxonomy: [ categories, tags ]
     show_on_dashboard: true
     default_status: published
