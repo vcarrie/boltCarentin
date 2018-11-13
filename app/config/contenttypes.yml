@@ -84,7 +84,7 @@ pages:
         template:
             type: templateselect
             filter: '*.twig'
-    taxonomy: [ groups ]
+    taxonomy: [ categories_page ]
     recordsperpage: 20
 
 
@@ -120,12 +120,7 @@ tutos:
             type: image
             group: media
             placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
-    # relations:
-    #     pages:
-    #       multiple: false
-    #       order: title
-    #       label: Select a page
-    taxonomy: [ categories ]
+    taxonomy: [ categories_tutos ]
     record_template: tuto.twig
     listing_template: listing_tuto.twig
     listing_records: 10

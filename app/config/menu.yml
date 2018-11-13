@@ -7,21 +7,26 @@ main:
       path: homepage
       class: first
     - label: Tout les tutos
-      path: entry/1
+      path: tutos
       submenu:
           - label: Config
-            path: categories/config
+            path: categories_tutos/config
           - label: Back-end
-            path: categories/back-end
+            path: categories_tutos/back-end
           - label: Front-end
-            path: categories/front-end
+            path: categories_tutos/front-end
           - label: SEO
-            path: categories/seo
-    - label: All pages
-      path: pages/
-    - label: The Bolt site
-      link: http://bolt.cm
-      class: last
+            path: categories_tutos/seo
+    - label: Toutes les pages
+      path: pages
+      submenu:
+          - label: Classiques
+            path: categories_page/classiques
+          - label: Avec template
+            path: categories_page/avec-template
+          - label: Sans template
+            path: categories_page/sans-template
+
 
 admin:
 - label: Admin
