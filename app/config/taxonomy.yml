@@ -16,18 +16,29 @@ groups:
     options: { main: "The main group", meta: "Meta group", other: "The other stuff" }
     has_sortorder: true
 
-categories_tutos:
-    name: Categorie
-    slug: categories_tutos
-    singular_slug: categories_tuto
+categories:
+    name: Categories
+    slug: categories
+    singular_name: Category
+    singular_slug: category
     behaves_like: categories
     multiple: true
-    options: [ SEO, Back-end, Front-end, Config ]
+    options: [ news, events, movies, music, books, life, love, fun ]
+
+
+typearticles:
+    name: Type article
+    slug: typearticles
+    #le slug est généré automatiquement à partir du name si on ne le défini pas
+    singular_slug: typearticle
+    behaves_like: categories
+    multiple: true
+    options: { seo: "SEO", back-end: "Back-end", front-end: "Front-end", config: "Config" }
 #
-categories_page:
-    name: Categorie
-    slug: categories_page
-    singular_slug: categories_page
+typepages:
+    name: Type page
+    slug: typepages
+    singular_slug: typepage
     behaves_like: categories
     multiple: true
-    options: [ Classique, Sans-template, Avec-template ]
+    options:  { generique: "Générique", avec-template: "Avec template", sans-template: "Sans template" }

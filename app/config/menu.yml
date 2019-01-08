@@ -6,26 +6,28 @@ main:
       title: Accueil Hover
       path: homepage
       class: first
+
     - label: Tout les tutos
-      path: tutos
+      path: articles
       submenu:
           - label: Config
-            path: categories_tutos/config
+            path: typearticles/config
           - label: Back-end
-            path: categories_tutos/back-end
+            path: typearticles/back-end
           - label: Front-end
-            path: categories_tutos/front-end
+            path: typearticles/front-end
           - label: SEO
-            path: categories_tutos/seo
+            path: typearticles/seo
+
     - label: Toutes les pages
       path: pages
       submenu:
           - label: Classiques
-            path: categories_page/classiques
+            path: typepages/generique
           - label: Avec template
-            path: categories_page/avec-template
+            path: typepages/avec-template
           - label: Sans template
-            path: categories_page/sans-template
+            path: typepages/sans-template
 
 
 admin:

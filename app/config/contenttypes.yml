@@ -68,23 +68,29 @@ pages:
         slug:
             type: slug
             uses: title
-        image:
-            type: image
-            placeholder: https://source.unsplash.com/1280x768/?business,workplace/__random__
-        imageTest:
-            type: image
-            placeholder: https://source.unsplash.com/1280x768/?business,workplace/__random__
-            group: test
         teaser:
             type: html
             height: 150px
-        body:
+            label: Description pour la vue listing
+        thumbnail:
+            type: image
+            label: Image pour le listing
+            placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
+        image:
+            type: image
+            label: Image de la catégorie pour le bandeau
+            placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
+        introduction:
+            type: html
+            height: 300px
+        contenu:
             type: html
             height: 300px
         template:
             type: templateselect
             filter: '*.twig'
-    taxonomy: [ categories_page ]
+    record_template: template-page.twig
+    taxonomy: [ typepages ]
     recordsperpage: 20
 
 
@@ -99,8 +105,8 @@ pages:
 # The 'sort' is set to '-datepublish', which means that newer entries will be
 # shown above older entries.
 
-tutos:
-    name: Tutos
+articles:
+    name: Articles
     singular_name: article
     fields:
         title:
@@ -111,18 +117,29 @@ tutos:
             type: slug
             uses: title
         teaser:
+            postfix: Description pour la vue listing
             type: html
             height: 150px
-        body:
-            type: html
-            height: 300px
+        thumbnail:
+            postfix: Image pour le listing
+            type: image
+            placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
         image:
             type: image
-            group: media
+            postfix: Image de la catégorie pour le bandeau
             placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
-    taxonomy: [ categories_tutos ]
-    record_template: tuto.twig
-    listing_template: listing_tuto.twig
+        introduction:
+            type: html
+            height: 300px
+        contenu:
+            type: html
+            height: 300px
+        template: #ici on choisit le template si l'on ne veut pas celui par defaut
+            type: templateselect
+            filter: '*.twig'
+    taxonomy: [ typearticles ]
+    record_template: template-article.twig
+    listing_template: listing.twig
     listing_records: 10
     default_status: published
     sort: -datepublish
@@ -206,7 +223,7 @@ showcases:
             postfix: "Select your favourite turtle(s)."
         selectentry:
             type: select
-            values: tutos/id,title
+            values: articles/id,title
             postfix: "Select an entry"
             autocomplete: true
             sort: title
