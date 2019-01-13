@@ -90,7 +90,7 @@ pages:
             type: templateselect
             filter: '*.twig'
     record_template: template-page.twig
-    taxonomy: [ typepages ]
+    taxonomy: [ categoriespages ]
     recordsperpage: 20
 
 
@@ -120,26 +120,26 @@ articles:
             postfix: Description pour la vue listing
             type: html
             height: 150px
-        thumbnail:
+        thumbnail: #Par defaut, record.image retourne le premier sub-field de type image
             postfix: Image pour le listing
             type: image
-            placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
-        image:
-            type: image
-            postfix: Image de la catégorie pour le bandeau
+            attrib: [title, alt]
             placeholder: https://source.unsplash.com/1280x768/?business,workspace,interior/__random__
         introduction:
+            postfix: Description des enjeux du tuto (vue article)
             type: html
             height: 300px
         contenu:
+            postfix: Contenu du tuto (vue article)
             type: html
             height: 300px
-        template: #ici on choisit le template si l'on ne veut pas celui par defaut
+        template: #Ajouter ce champs permet d'avoir un input de selection de template dans la vue de l'article du BO.
+                  #Ce champs permet de choisir un autre template que celui par defaut
             type: templateselect
             filter: '*.twig'
-    taxonomy: [ typearticles ]
-    record_template: template-article.twig
-    listing_template: listing.twig
+    taxonomy: [ categoriesarticles ] #Id de la taxonomy (cf fichier taxonomy.yml)
+    record_template: template-article.twig #Définition du template "show" par defaut
+    listing_template: listing.twig #Définition du template "listing" par defaut
     listing_records: 10
     default_status: published
     sort: -datepublish

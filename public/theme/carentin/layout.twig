@@ -1,0 +1,31 @@
+{% extends 'partials/_master.twig' %}
+
+
+{% block header %}
+<!-- Template-article.twig et Template-page.twig sont les deux templates qui "extends" ce layout
+Toutes les autres vues "extends" uniquement _master.twig
+ -->
+    {% setcontent homepage = "homepage" limit 1 returnsingle %}
+    <section class="banniere" style="background-image: url({% block banniere %}{% endblock %})">
+        <div class="container banniere-title">
+            <h1>{% block headerTitle %}{% endblock %}</h1>
+        </div>
+    </section>
+{% endblock header %}
+
+{% block main %}
+
+  <section class="container">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          {% block article %}{% endblock %}
+        </div>
+        <div class="col-12 col-md-4 aside">
+          <aside class="">
+            {% block aside %}{% endblock %}
+          </aside>
+        </div>
+
+      </div>
+  </section>
+{% endblock main %}

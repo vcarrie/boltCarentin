@@ -15,24 +15,34 @@
     {% from _self import display_menu_item %}
     {% spaceless %}
     {% if item.submenu|default is empty %}
-    <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='navbar-item {{ item|current ? 'is-active' }} {{ item.class|default('') }}'>
-        {{- item.label|default('-') -}}
-    </a>
+    <!-- element <li> sans sous-menu -->
+    <li class="nav-item {{ item|current ? 'active' }}">
+      <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='navbar-link {{ item.class|default('') }}'>
+          {{- item.label|default('-') -}}
+      </a>
+    </li>
     {% endif %}
 
     {% if item.submenu is defined and withsubmenus %}
-    <div class="navbar-item
-        {{ (item.submenu|default(false) and withsubmenus) ? ' has-dropdown is-hoverable' -}}">
+    <!-- element <li> avec sous-menu
+    Si il y deux element ayant des sous-menus, on utilise {{ loop.index }} pour dissocier
+    les identifiants et leur dropdown respectifs.
+    -->
 
-        <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='navbar-link {{ item|current ? 'is-active' }}{{ item.class|default('') }}'>
+    <li class="nav-item dropdown">
+        <a href="#" title='{{ item.title|default('')|escape }}'
+         class='dropdown-toggle nav-link {{ item|current ? 'active' }}{{ item.class|default('') }}'
+         id="submenu-{{ loop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{- item.label|default('-') -}}
         </a>
-        <div class="navbar-dropdown">
+        <div class="dropdown-menu" aria-labelledby="submenu-{{ loop.index }}">
+          <ul class="submenu">
             {% for submenu in item.submenu|default %}
-                {{ display_menu_item(submenu, loop) }}
+              {{ display_menu_item(submenu, loop) }} <!-- on rappel la macro pour afficher les sous-menus -->
             {% endfor %}
+          </ul>
         </div>
-    </div>
+    </li>
     {% endif %}
     {% endspaceless %}
 {% endmacro %}
@@ -41,8 +51,10 @@
 {% from _self import display_menu_item %}
 
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
+<ul class="navbar-nav">
 {% for item in menu %}
     {% if item.label is defined %}
         {{ display_menu_item(item, loop, '', withsubmenus) }}
     {% endif %}
 {% endfor %}
+</ul>

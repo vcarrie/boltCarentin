@@ -11,23 +11,23 @@ main:
       path: articles
       submenu:
           - label: Config
-            path: typearticles/config
+            path: categoriesarticles/config
           - label: Back-end
-            path: typearticles/back-end
+            path: categoriesarticles/back-end
           - label: Front-end
-            path: typearticles/front-end
+            path: categoriesarticles/front-end
           - label: SEO
-            path: typearticles/seo
+            path: categoriesarticles/seo
 
     - label: Toutes les pages
       path: pages
       submenu:
           - label: Classiques
-            path: typepages/generique
+            path: categoriespages/generique
           - label: Avec template
-            path: typepages/avec-template
+            path: categoriespages/avec-template
           - label: Sans template
-            path: typepages/sans-template
+            path: categoriespages/sans-template
 
 
 admin:
